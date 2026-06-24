@@ -9,6 +9,7 @@ import path from "path";
 
 import { clerkMiddleware } from "@clerk/express"; 
 import { connectDB } from "./lib/db.js";
+import job from "./lib/cron.js";
 
 const app = express();
 
@@ -38,4 +39,8 @@ const port = process.env.PORT || 3000
 app.listen(port, () => {
     connectDB();
     console.log(`Your app is running on http://localhost:${port}`)
+
+    if (process.env.NODE_ENV === "production") {
+        job.start();
+    }
 })
