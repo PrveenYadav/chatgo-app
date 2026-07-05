@@ -13,8 +13,8 @@ import job from "./lib/cron.js";
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
+import { app, server } from "./lib/socket.js";
 
-const app = express();
 
 const publicDir = path.join(process.cwd(), "public");
 
@@ -45,7 +45,7 @@ if (fs.existsSync(publicDir)) {
 
 const port = process.env.PORT || 3000
 
-app.listen(port, () => {
+server.listen(port, () => {
     connectDB();
     console.log(`Your app is running on http://localhost:${port}`)
 
