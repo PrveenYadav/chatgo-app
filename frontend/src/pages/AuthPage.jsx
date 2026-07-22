@@ -4,7 +4,7 @@ import { AuthHeroPanel } from "../components/auth/AuthHeroPanel.jsx";
 import { useWallpaper } from "../context/wallpaper.js";
 
 function AuthPage() {
-  return <div>AuthPage</div>;
+  // return <div>AuthPage</div>;
   const { frameStyle } = useWallpaper();
 
   return (
@@ -20,4 +20,5 @@ function AuthPage() {
     </div>
   );
 }
+
 export default AuthPage;

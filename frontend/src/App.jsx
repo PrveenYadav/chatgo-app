@@ -1,5 +1,4 @@
-import { Show, SignInButton, SignUpButton, useAuth, UserButton } from '@clerk/react'
-import { Button } from '@heroui/react';
+import { useAuth } from '@clerk/react'
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { WallpaperProvider } from './context/WallpaperContext.jsx';
 import { Navigate, Route, Routes } from 'react-router';
@@ -38,6 +37,8 @@ function App() {
         <Routes>
           <Route path="/" element={isSignedIn ? <ChatPage/> : <Navigate to={"/auth"} replace />}/>
           <Route path="/auth" element={!isSignedIn ? <AuthPage/> : <Navigate to={"/"} replace />}/>
+          {/* <Route path="/" element={<ChatPage/>}/>
+          <Route path="/auth" element={<AuthPage/>}/> */}
         </Routes>
 
         <Toaster/>
